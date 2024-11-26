@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>電影座位指引</title>
+    <style>
+        /* 全局樣式 */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f3f4f6; /* 柔和灰色背景 */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        /* 容器樣式 */
+        .container {
+            background-color: #ffffff; /* 白色背景 */
+            border: 3px solid #0073e6; /* 添加藍色邊框 */
+            border-radius: 16px; /* 圓角邊框 */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* 添加陰影 */
+            padding: 40px;
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+        }
+
+        /* 標題樣式 */
+        h1 {
+            font-size: 28px;
+            color: #0056b3; /* 深藍色字體 */
+            margin-bottom: 20px;
+        }
+
+        /* 座位號碼樣式 */
+        .seat-number {
+            font-size: 36px;
+            font-weight: bold;
+            color: #333;
+            background-color: #eef6ff; /* 淺藍色背景 */
+            padding: 15px 25px;
+            border-radius: 8px; /* 圓角設計 */
+            display: inline-block;
+            border: 2px solid #0073e6; /* 藍色實線邊框 */
+        }
+
+        /* 備註文字樣式 */
+        .note {
+            margin-top: 20px;
+            font-size: 14px;
+            color: #666; /* 灰色字體 */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>您的座位資訊</h1>
+        <div class="seat-number" id="seatInfo">載入中...</div>
+        <div class="note">請確認您的座位資訊是否正確</div>
+    </div>
+
+    <script>
+        // 獲取 URL 中的座位號參數
+        const urlParams = new URLSearchParams(window.location.search);
+        const seatId = urlParams.get('id');
+        const seatInfo = document.getElementById('seatInfo');
+
+        // 顯示座位號碼
+        seatInfo.innerText = seatId ? seatId : "1廳H排4號";
+    </script>
+</body>
+</html>
